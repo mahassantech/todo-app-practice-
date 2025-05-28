@@ -7,7 +7,7 @@ def task(request):
         form=TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('home')
     else:
         form=TaskForm()
     return render (request,'task.html',{'form':form})
