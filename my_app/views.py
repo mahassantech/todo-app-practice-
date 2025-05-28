@@ -22,7 +22,7 @@ def Edit(request,id):
         form=TaskForm(request.POST,instance=data)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('home')
     else:
         form=TaskForm(instance=data)
     return render(request,'edit_task.html',{'form':form})
@@ -30,7 +30,7 @@ def Edit(request,id):
 def delete_todo(request,id):
     data=TaskModel.objects.get(pk=id)
     data.delete()
-    return redirect('/')
+    return redirect('home')
     
 
 
